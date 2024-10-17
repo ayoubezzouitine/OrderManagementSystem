@@ -1,0 +1,163 @@
+1. Create Customers (10 rows)
+
+# Customer 1
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "John Doe", "email": "john.doe@gmail.com"}'
+
+# Customer 2
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Jane Smith", "email": "jane.smith@yahoo.com"}'
+
+# Customer 3
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Bob Johnson", "email": "bob.johnson@outlook.com"}'
+
+# Customer 4
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Alice Brown", "email": "alice.brown@gmail.com"}'
+
+# Customer 5
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Charlie Green", "email": "charlie.green@company.com"}'
+
+# Customer 6
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Emily White", "email": "emily.white@hotmail.com"}'
+
+# Customer 7
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "David Black", "email": "david.black@blackcorp.com"}'
+
+# Customer 8
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Sophia King", "email": "sophia.king@someemail.com"}'
+
+# Customer 9
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Mark Grey", "email": "mark.grey@workmail.com"}'
+
+# Customer 10
+curl -X POST http://localhost:8080/customers \
+-H "Content-Type: application/json" \
+-d '{"name": "Laura Blue", "email": "laura.blue@gmail.com"}'
+
+
+
+2. Create Products (10 rows)
+
+# Product 1
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Laptop", "price": 1200.00}'
+
+# Product 2
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Smartphone", "price": 800.00}'
+
+# Product 3
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Tablet", "price": 500.00}'
+
+# Product 4
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Monitor", "price": 250.00}'
+
+# Product 5
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Keyboard", "price": 100.00}'
+
+# Product 6
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Mouse", "price": 50.00}'
+
+# Product 7
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Headphones", "price": 150.00}'
+
+# Product 8
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Speaker", "price": 200.00}'
+
+# Product 9
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Printer", "price": 300.00}'
+
+# Product 10
+curl -X POST http://localhost:8080/products \
+-H "Content-Type: application/json" \
+-d '{"name": "Webcam", "price": 90.00}'
+
+
+3. Create Orders (10 rows)
+
+Make sure that the customerId refers to an existing customer, and the products field refers to existing products that you've already created.
+
+
+# Order 1
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 1, "products": [{"id": 1}, {"id": 2}]}'
+
+# Order 2
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 2, "products": [{"id": 3}, {"id": 4}]}'
+
+# Order 3
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 3, "products": [{"id": 5}, {"id": 6}]}'
+
+# Order 4
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 4, "products": [{"id": 7}, {"id": 8}]}'
+
+# Order 5
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 5, "products": [{"id": 9}, {"id": 10}]}'
+
+# Order 6
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 6, "products": [{"id": 1}, {"id": 3}]}'
+
+# Order 7
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 7, "products": [{"id": 5}, {"id": 7}]}'
+
+# Order 8
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 8, "products": [{"id": 2}, {"id": 6}]}'
+
+# Order 9
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 9, "products": [{"id": 4}, {"id": 9}]}'
+
+# Order 10
+curl -X POST http://localhost:8080/orders \
+-H "Content-Type: application/json" \
+-d '{"orderDate": "2024-10-16", "customerId": 10, "products": [{"id": 8}, {"id": 10}]}'
+
+
