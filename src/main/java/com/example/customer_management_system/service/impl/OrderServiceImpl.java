@@ -1,5 +1,6 @@
 package com.example.customer_management_system.service.impl;
 
+import com.example.customer_management_system.exception.OrderNotFoundException;
 import com.example.customer_management_system.model.Order;
 import com.example.customer_management_system.repository.CustomerRepository;
 import com.example.customer_management_system.repository.OrderRepository;
@@ -24,13 +25,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order updateOrder(Order order) {
-        return orderRepository.save(order);
+    public Order updateOrder(long id, Order order) {
+       return orderRepository.findById(id).map(existingOrder ->{
+            existingOrder.setOrderDate(order.getOrderDate());
+            existingOrder.setCustomer(order.getCustomer());
+            existingOrder.setProducts(order.getProducts());
+            return orderRepository.save(existingOrder);
+        }).orElseThrow(() -> new OrderNotFoundException("Order with the id " + id + " is not found"));
     }
 
     @Override
     public Order findOrderById(long id) {
-        return orderRepository.findById(id).orElseThrow(() -> new RuntimeException("Order with the id " + id + " is  not found"));
+        return orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException("Order with the id " + id + " is  not found"));
     }
 
     @Override

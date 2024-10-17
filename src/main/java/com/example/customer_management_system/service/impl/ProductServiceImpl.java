@@ -1,5 +1,6 @@
 package com.example.customer_management_system.service.impl;
 
+import com.example.customer_management_system.exception.ProductNotFoundException;
 import com.example.customer_management_system.model.Product;
 import com.example.customer_management_system.repository.ProductRepository;
 import com.example.customer_management_system.service.OrderService;
@@ -24,8 +25,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product updateProduct(Product product) {
-        return productRepository.save(product);
+    public Product updateProduct(long id,Product product) {
+
+      return  productRepository.findById(id).map(productToUpdate->{
+           productToUpdate.setName(product.getName());
+           productToUpdate.setPrice(product.getPrice());
+           productToUpdate.setOrder(product.getOrder());
+           return productRepository.save(productToUpdate);
+       }).orElseThrow(()->new ProductNotFoundException("The product with the id " + id + " is not found"));
     }
 
     @Override
@@ -35,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(long id) {
-        return productRepository.findById(id).orElseThrow(()->new RuntimeException("The product with the id " + id + " is not found"));
+        return productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("The product with the id " + id + " is not found"));
     }
 
     @Override
